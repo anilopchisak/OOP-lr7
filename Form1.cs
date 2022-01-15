@@ -48,7 +48,6 @@ namespace ооп_лаба_7
                                     storage.deleteObject(j);
                                     storage.change_array();
                                     storage.addGroup(group);
-                                    //check = true;
                                 }
                             }
                             storage.get_current_obj(storage.getCount() - 1).set_select(true);
@@ -212,34 +211,24 @@ namespace ооп_лаба_7
             change_color(0);
         }
 
-        //private void tsbtn_Ungroup_Click(object sender, EventArgs e)
-        //{
-        //    int ungroup = -1;
-        //    for (int i = 0; i < storage.getCount(); i++)
-        //        if (storage.get_current_obj(i).get_select() == true)
-        //            if (storage.get_current_obj(i).classname() == "Group")
-        //            {
-        //                ungroup = i;
-        //                break;
-        //            }
-        //    if (ungroup != -1)
-        //    {
-        //        for (int i = 0; i < 2; i++)
-        //        {
-        //            switch (storage.get_current_obj(ungroup).getObject(i).classname())
-        //            {
-        //                case "Circle":
-        //                    circle = new Circle(storage.get_current_obj(ungroup).getObject(i).get_x(), storage.get_current_obj(ungroup).getObject(i).get_y());
-        //                    circle.set_select(false);
-        //                    circle.set_color()
-
-        //                    storage.addCircle(storage.get_current_obj(ungroup).getObject(i));
-        //                    break;
-        //            }
-
-        //        }
-        //    }
-
-        //}
+        private void tsbtn_Ungroup_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < storage.getCount(); i++)
+                if (storage.get_current_obj(i).get_select() == true)
+                    if (storage.get_current_obj(i).classname() == "Group")
+                    {
+                        for (int j = 0; j < 2; j++)
+                            storage.addBase(storage.get_current_obj(i).getObject(j));
+                        for (int j = 0; j < storage.getCount(); j++)
+                        {
+                            if (storage.get_current_obj(j).get_select() == true) //снимаем выделение у всех объектов
+                                storage.get_current_obj(j).set_select(false);
+                        }
+                        storage.deleteObject(i);
+                        storage.change_array();
+                        Refresh();
+                        break;
+                    }
+        }
     }
 }

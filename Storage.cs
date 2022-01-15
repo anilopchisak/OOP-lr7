@@ -59,6 +59,13 @@ namespace ооп_лаба_7
 			_size = _size + 1;
 		}
 
+		public void addBase(BaseObject b)
+        {
+			_objects.Add(b);
+			_count = _count + 1;
+			_size = _size + 1;
+		}
+
 		public void change_array()
 		{
 			List<BaseObject> _objects2 = new List<BaseObject>();

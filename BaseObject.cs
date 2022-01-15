@@ -116,5 +116,10 @@ namespace ооп_лаба_7
         }
 
         virtual public bool get_r_checked() { return false; }
+
+        virtual public void deleteObjects()
+        {
+
+        }
     }
 }

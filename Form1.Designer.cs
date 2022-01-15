@@ -185,7 +185,7 @@ namespace ооп_лаба_7
             this.tsbtn_Ungroup.Name = "tsbtn_Ungroup";
             this.tsbtn_Ungroup.Size = new System.Drawing.Size(71, 28);
             this.tsbtn_Ungroup.Text = "Ungroup";
-            //this.tsbtn_Ungroup.Click += new System.EventHandler(this.tsbtn_Ungroup_Click);
+            this.tsbtn_Ungroup.Click += new System.EventHandler(this.tsbtn_Ungroup_Click);
             // 
             // Form1
             // 

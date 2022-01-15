@@ -10,16 +10,14 @@ namespace ооп_лаба_7
 {
     class Group : BaseObject
     {
-        private int _maxcount; // максимально возможное количество фигур в группе
         private int _count; // текущее количество фигур в группе
         private List <BaseObject> _objects; // массив ссылок на хранимые фигуры
 
         public Group ()
         {
-            _maxcount = 0; 
             _count = 0;
             _objects = new List<BaseObject>();
-            for (int i = 0; i < _maxcount; i++)
+            for (int i = 0; i < _count; i++)
                 _objects[i] = null;
         }
 
@@ -34,7 +32,7 @@ namespace ооп_лаба_7
         override public void addObject(BaseObject obj)
         {
             _objects.Add(obj);
-            _count++; _maxcount++;
+            _count++;
         }
 
 
@@ -178,6 +176,7 @@ namespace ооп_лаба_7
         }
 
 
+
         public override void draw(PaintEventArgs e)
         {
             for (int i = 0; i < _count; i++)
@@ -191,6 +190,7 @@ namespace ооп_лаба_7
                     return true;
             return false;  
         }
+
 
 
         public override void set_select(bool _select)
@@ -219,9 +219,5 @@ namespace ооп_лаба_7
         {
             return _objects[i];
         }
-
-
-
-
     }
 }

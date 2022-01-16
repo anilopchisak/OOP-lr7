@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ооп_лаба_7
 {
@@ -219,5 +220,27 @@ namespace ооп_лаба_7
         {
             return _objects[i];
         }
+
+
+
+        public override void save(StreamWriter stream)
+        {
+            stream.WriteLine("Group");
+            stream.WriteLine(_count);
+            for (int i = 0; i < _count; i++) _objects[i].save(stream);
+        }
+
+        public override void load(StreamReader stream, AbstractFactory factory)
+        {
+            string[] data = stream.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            int i = Convert.ToInt32(data[0]);
+            for (; i > 0; i--)
+            {
+                BaseObject obj = factory.CreateBaseObject(stream.ReadLine());
+                obj.load(stream, factory);
+                addObject(obj);
+            }
+        }
+
     }
 }

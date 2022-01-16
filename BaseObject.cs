@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ооп_лаба_7
 {
@@ -117,9 +118,14 @@ namespace ооп_лаба_7
 
         virtual public bool get_r_checked() { return false; }
 
-        virtual public void deleteObjects()
-        {
+        virtual public void deleteObjects() { }
 
-        }
-    }
+
+
+        virtual public void save(StreamWriter stream) { }
+
+        virtual public void load(StreamReader stream, AbstractFactory factory) { }
+
+
+}
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ооп_лаба_7
@@ -15,6 +16,7 @@ namespace ооп_лаба_7
         public Form1()
         {
             InitializeComponent();
+
         }
 
         Circle circle = new Circle();
@@ -136,8 +138,64 @@ namespace ооп_лаба_7
                 ctrl = false;
         }
 
+        private void tsbtn_Ungroup_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < storage.getCount(); i++)
+                if (storage.get_current_obj(i).get_select() == true)
+                    if (storage.get_current_obj(i).classname() == "Group")
+                    {
+                        for (int j = 0; j < 2; j++)
+                            storage.addBase(storage.get_current_obj(i).getObject(j));
+                        for (int j = 0; j < storage.getCount(); j++)
+                        {
+                            if (storage.get_current_obj(j).get_select() == true) //снимаем выделение у всех объектов
+                                storage.get_current_obj(j).set_select(false);
+                        }
+                        storage.deleteObject(i);
+                        storage.change_array();
+                        Refresh();
+                        break;
+                    }
+        }
 
+        private void tsbtn_Save_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileStream f = new FileStream(saveFileDialog.FileName, FileMode.Create);
+                StreamWriter stream = new StreamWriter(f);
+                stream.WriteLine(storage.getCount());
+                if (storage.getCount() != 0)
+                {
+                    for (int i = 0; i < storage.getCount(); i++) storage.get_current_obj(i).save(stream);
+                }
+                stream.Close();
+                f.Close();
+            }
+            this.Activate();
+        }
 
+        private void tsbtn_Load_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileStream f = new FileStream(openFileDialog.FileName, FileMode.Open);
+                StreamReader stream = new StreamReader(f);
+                int i = Convert.ToInt32(stream.ReadLine());
+                MyAbstractFactory factory = new MyAbstractFactory();
+                for (; i > 0; i--)
+                {
+                    string tmp = stream.ReadLine();
+                    storage.addBase(factory.CreateBaseObject(tmp));
+                    storage.get_current_obj(storage.getCount() - 1).load(stream, factory);
+                }
+                stream.Close();
+                f.Close();
+            }
+            Refresh();
+            //panel1.Invalidate();
+            this.Activate();
+        }
 
         private void tsbtn_Circle_Click(object sender, EventArgs e)
         {
@@ -211,24 +269,6 @@ namespace ооп_лаба_7
             change_color(0);
         }
 
-        private void tsbtn_Ungroup_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < storage.getCount(); i++)
-                if (storage.get_current_obj(i).get_select() == true)
-                    if (storage.get_current_obj(i).classname() == "Group")
-                    {
-                        for (int j = 0; j < 2; j++)
-                            storage.addBase(storage.get_current_obj(i).getObject(j));
-                        for (int j = 0; j < storage.getCount(); j++)
-                        {
-                            if (storage.get_current_obj(j).get_select() == true) //снимаем выделение у всех объектов
-                                storage.get_current_obj(j).set_select(false);
-                        }
-                        storage.deleteObject(i);
-                        storage.change_array();
-                        Refresh();
-                        break;
-                    }
-        }
+
     }
 }

@@ -43,8 +43,15 @@ namespace ооп_лаба_7
             this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tsbtn_Ungroup = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtn_Save = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtn_Load = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +63,12 @@ namespace ооп_лаба_7
             this.tsbtn_Square,
             this.tsbtn_Triangle,
             this.tsDDbtn_Color,
-            this.tsbtn_Ungroup});
+            this.tsbtn_Ungroup,
+            this.toolStripSeparator1,
+            this.tsbtn_Save,
+            this.toolStripSeparator2,
+            this.tsbtn_Load,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1082, 27);
@@ -79,7 +91,7 @@ namespace ооп_лаба_7
             this.tsbtn_Square.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Square.Image")));
             this.tsbtn_Square.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_Square.Name = "tsbtn_Square";
-            this.tsbtn_Square.Size = new System.Drawing.Size(59, 28);
+            this.tsbtn_Square.Size = new System.Drawing.Size(59, 24);
             this.tsbtn_Square.Text = "Square";
             this.tsbtn_Square.Click += new System.EventHandler(this.tsbtn_Square_Click);
             // 
@@ -89,7 +101,7 @@ namespace ооп_лаба_7
             this.tsbtn_Triangle.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Triangle.Image")));
             this.tsbtn_Triangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_Triangle.Name = "tsbtn_Triangle";
-            this.tsbtn_Triangle.Size = new System.Drawing.Size(66, 28);
+            this.tsbtn_Triangle.Size = new System.Drawing.Size(66, 24);
             this.tsbtn_Triangle.Text = "Triangle";
             this.tsbtn_Triangle.Click += new System.EventHandler(this.tsbtn_Triangle_Click);
             // 
@@ -108,64 +120,109 @@ namespace ооп_лаба_7
             this.tsDDbtn_Color.Image = ((System.Drawing.Image)(resources.GetObject("tsDDbtn_Color.Image")));
             this.tsDDbtn_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsDDbtn_Color.Name = "tsDDbtn_Color";
-            this.tsDDbtn_Color.Size = new System.Drawing.Size(59, 28);
+            this.tsDDbtn_Color.Size = new System.Drawing.Size(59, 24);
             this.tsDDbtn_Color.Text = "Color";
             // 
             // redToolStripMenuItem
             // 
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
             // 
             // orangeToolStripMenuItem
             // 
             this.orangeToolStripMenuItem.Name = "orangeToolStripMenuItem";
-            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.orangeToolStripMenuItem.Text = "Orange";
             this.orangeToolStripMenuItem.Click += new System.EventHandler(this.orangeToolStripMenuItem_Click);
             // 
             // yellowToolStripMenuItem
             // 
             this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
-            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.yellowToolStripMenuItem.Text = "Yellow";
             this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowToolStripMenuItem_Click);
             // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
-            this.greenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.greenToolStripMenuItem.Text = "Green";
             this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenToolStripMenuItem_Click);
             // 
             // lightBlueToolStripMenuItem
             // 
             this.lightBlueToolStripMenuItem.Name = "lightBlueToolStripMenuItem";
-            this.lightBlueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lightBlueToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.lightBlueToolStripMenuItem.Text = "Light Blue";
             this.lightBlueToolStripMenuItem.Click += new System.EventHandler(this.lightBlueToolStripMenuItem_Click);
             // 
             // blueToolStripMenuItem
             // 
             this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
-            this.blueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.blueToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.blueToolStripMenuItem.Text = "Blue";
             this.blueToolStripMenuItem.Click += new System.EventHandler(this.blueToolStripMenuItem_Click);
             // 
             // purpleToolStripMenuItem
             // 
             this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
-            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.purpleToolStripMenuItem.Text = "Purple";
             this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
             // 
             // blackToolStripMenuItem
             // 
             this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-            this.blackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.blackToolStripMenuItem.Text = "Black";
             this.blackToolStripMenuItem.Click += new System.EventHandler(this.blackToolStripMenuItem_Click);
+            // 
+            // tsbtn_Ungroup
+            // 
+            this.tsbtn_Ungroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_Ungroup.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Ungroup.Image")));
+            this.tsbtn_Ungroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_Ungroup.Name = "tsbtn_Ungroup";
+            this.tsbtn_Ungroup.Size = new System.Drawing.Size(71, 24);
+            this.tsbtn_Ungroup.Text = "Ungroup";
+            this.tsbtn_Ungroup.Click += new System.EventHandler(this.tsbtn_Ungroup_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tsbtn_Save
+            // 
+            this.tsbtn_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Save.Image")));
+            this.tsbtn_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_Save.Name = "tsbtn_Save";
+            this.tsbtn_Save.Size = new System.Drawing.Size(44, 24);
+            this.tsbtn_Save.Text = "Save";
+            this.tsbtn_Save.Click += new System.EventHandler(this.tsbtn_Save_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tsbtn_Load
+            // 
+            this.tsbtn_Load.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_Load.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Load.Image")));
+            this.tsbtn_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_Load.Name = "tsbtn_Load";
+            this.tsbtn_Load.Size = new System.Drawing.Size(46, 24);
+            this.tsbtn_Load.Text = "Load";
+            this.tsbtn_Load.Click += new System.EventHandler(this.tsbtn_Load_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
             // panel1
             // 
@@ -177,15 +234,9 @@ namespace ооп_лаба_7
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // tsbtn_Ungroup
+            // openFileDialog
             // 
-            this.tsbtn_Ungroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_Ungroup.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_Ungroup.Image")));
-            this.tsbtn_Ungroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_Ungroup.Name = "tsbtn_Ungroup";
-            this.tsbtn_Ungroup.Size = new System.Drawing.Size(71, 28);
-            this.tsbtn_Ungroup.Text = "Ungroup";
-            this.tsbtn_Ungroup.Click += new System.EventHandler(this.tsbtn_Ungroup_Click);
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // Form1
             // 
@@ -222,6 +273,13 @@ namespace ооп_лаба_7
         private System.Windows.Forms.ToolStripMenuItem purpleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blackToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton tsbtn_Ungroup;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbtn_Save;
+        private System.Windows.Forms.ToolStripButton tsbtn_Load;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

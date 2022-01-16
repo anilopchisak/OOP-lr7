@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.IO;
 
 namespace ооп_лаба_7
 {
@@ -97,5 +98,22 @@ namespace ооп_лаба_7
         {
             return "Circle";
         }
+
+
+
+        public override void save(StreamWriter stream)
+        {
+            stream.WriteLine("Circle");
+            stream.WriteLine(x + " " + y + " " + r + " " + color);
+        }
+        public override void load(StreamReader stream, AbstractFactory factory)
+        {
+            string[] data = stream.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            x = Convert.ToInt32(data[0]);
+            y = Convert.ToInt32(data[1]);
+            r = Convert.ToInt32(data[2]);
+            color = Convert.ToInt32(data[3]);
+        }
+
     }
 }
